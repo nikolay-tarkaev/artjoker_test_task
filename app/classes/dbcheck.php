@@ -20,13 +20,12 @@
  *  );
  */
 
-    final class dbcheck
-    {
+    final class dbcheck{
+
         private $dbc;
         private $dir_sql_files = '../lib/sql_tables/';
         
-        public function __construct(array $tables)
-        {
+        public function __construct(array $tables){
             if($this->checkArray($tables) === true){
                 $this->connect();
                 foreach($tables as $table){
@@ -54,8 +53,7 @@
             return true;
         }
 
-        private function connect()
-        {
+        private function connect(){
             try {
                 $this->dbc = new PDO(DB . ':host=' . DB_HOST . ';dbname=' .DB_NAME, DB_USER, DB_PASSWORD);
             } catch (PDOException $e) {
@@ -63,8 +61,7 @@
             }
         }
 
-        private function checkTable($table, $is_empty)
-        {
+        private function checkTable($table, $is_empty){
             $sql_array['is_exist'] = "SHOW TABLES FROM " . DB_NAME . " LIKE '" . $table . "'";
             if($is_empty === true){
                 $sql_array['is_empty'] = "SELECT * FROM " . $table . " LIMIT 1";
@@ -87,8 +84,7 @@
             }
         }
 
-        private function importTable($table)
-        {
+        private function importTable($table){
             $file_sql = $this->dir_sql_files . $table . ".sql";
             if(file_exists($file_sql)){
                 if(!$this->dbc->query(file_get_contents($file_sql))){

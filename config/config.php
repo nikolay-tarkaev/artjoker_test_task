@@ -4,3 +4,4 @@
     const DB_USER = 'root';
     const DB_PASSWORD = '';
     const DB_NAME = 'test_task_tarkaiev_artjoker';
+    const DB_CHARSET = 'utf8';

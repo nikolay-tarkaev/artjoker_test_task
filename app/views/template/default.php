@@ -1,14 +1,5 @@
 <?php
     $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
-
-    $separate_method_GET = explode('?', $_SERVER['REQUEST_URI']);
-    $routes = explode('/', $separate_method_GET[0]);
-    if ( !empty($routes[1]) ){
-        $controller_name = $routes[1];
-    }
-    else {
-        $controller_name = "main";
-    }
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +13,6 @@
 		<link rel="shortcut icon" href="<?= $host; ?>images/favicon.png" type="image/png" />
 		<link rel="stylesheet" href="<?= $host; ?>css/template.css" type="text/css" />
 		<link rel="stylesheet" href="<?= $host; ?>css/bootstrap.min.css" type="text/css" />
-		<link rel="stylesheet" href="<?= $host; ?>css/<?= $controller_name; ?>.css" type="text/css" />
 		<link rel="stylesheet" href="<?= $host; ?>css/chosen.min.css" type="text/css" />
     </head>
     <body>
@@ -127,6 +117,5 @@
         <script src="<?= $host; ?>js/bootstrap.min.js" type="text/JavaScript"></script>
         <script src="<?= $host; ?>js/chosen.jquery.min.js" type="text/JavaScript"></script>
         <script src="<?= $host; ?>js/template.js" type="text/JavaScript"></script>
-        <script src="<?= $host; ?>js/<?= $controller_name; ?>.js" type="text/JavaScript"></script>
     </body>
 </html>
